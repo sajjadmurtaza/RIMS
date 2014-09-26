@@ -1,0 +1,46 @@
+td,th, h2,h1{
+
+    color: #ffffff;
+}
+.table-bordered {
+    border: 4px solid #DDDDDD;
+}
+
+#show, #new, #edit, #index, #login, #all_products, #all_cat{
+    border: 2px solid #a1a1a1;
+    margin: 15px 0 0 150px;
+    border-radius: 25px;
+    width: 80%;
+    min-height: 580px;
+    max-height: auto;
+    background: #333333;
+    color: #ffffff;
+}
+#default{
+    border: 3px solid #a1a1a1;
+    margin: 15px 0 0 150px;
+    border-radius: 25px;
+    width: 80%;
+    min-height: 380px;
+    max-height: auto;
+    background: #333333;
+    color: #ffffff;
+}
+input{
+
+    color: #000000;
+}
+th
+{
+
+    height: 50px;
+
+}
+tr{
+    height: 40px;
+}
+button, input, optgroup, select, textarea {
+    color: #000000;
+    font: inherit;
+    margin: 0;
+}

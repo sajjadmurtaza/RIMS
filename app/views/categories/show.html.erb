@@ -1,9 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div id="show">
+    <div style="margin: 10px 0 0 350px;">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Category name:</strong>
-  <%= @category.category_name %>
-</p>
+    <p>
+      <strong>Category name:</strong>
+      <%= @category.category_name %>
+    </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+    <%= link_to 'Edit', edit_category_path(@category) %> |
+     <%= link_to 'Back', categories_path %>
+    </div>
+</div>

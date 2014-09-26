@@ -16,43 +16,74 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body style="background-color: #e9e9e9;">
+<body style="background-color: #666666;">
 
-<b>
-  <div style="width:100%; height:100px; ">
-    <div style="width:100%; height:40px;box-shadow: 2px 10px 4px #888888;background-color: #dddddd;">
-      <div style="float:left;">
 
-                        <div id="links" style="float:left; margin-left:20px;">
+    <div id="container" style="background-color: #333333; width: 80%; height: 130px; margin: 5px 0 0 150px; border-radius: 10px; border: 3px solid #333333">
 
-                          <%= link_to 'CUSTOMER-VIEWS', customers_path %>
-                        </div>
+      <div style="width: 100%; height: 120px;">
 
-                        <div id="links" style="float:left; margin-left:20px;">
+<!--SHOPPING CART IMAGE-->
+        <div style="margin: 5px 0 0 5px; height: 113px; width: 277px; float: left; border-radius: 10px; border: 3px solid #BADA55;">
+           <a href="/default/index"> <%= image_tag 'cart.png' %></a>
+        </div>
 
-                          <%= link_to 'CATEGORY-VIEWS', categories_path %>
-                        </div>
 
-                        <div id="links" style="float:left; margin-left:20px;">
+    <!--SHOPPING TEXT AND NEVIGATION BAR-->
+    <div style=" height: 120;float:left">
 
-                          <%= link_to 'PRODUCT-VIEWS', products_path %>
-                        </div>
+        <!-- SHOPPING CART TEXT-->
+        <div style="float: left; height: 50px;">
+          <p style="padding: 20px; color: #EA7A1B; font-family: Arial Black, Gadget, sans-serif;">
+            <b>ONLINE SHOPPING CART COMPANY ...</b></p>
+        </div>
 
-                        <div id="links" style="float:left; margin-left:20px;">
+      <!--NAVIGATION BAR-->
 
-                          <%= link_to 'ORDER-VIEWS', orders_path %>
-                        </div>
+      <div style="height: 50px;">
 
-                        <div id="links" style="float:left; margin-left:20px;">
+        <ul class="nav navbar-nav">
+          <% if session[:usersession] %>
+          <li><%= link_to 'Customers', customers_path %></li>
+          <li><%= link_to 'Category', categories_path %></li>
+          <li><%= link_to 'Product', products_path %></li>
+          <li> <%= link_to 'Order', orders_path %></li>
+          <li><%= link_to 'Order-Detail', orderdetails_path %></li>
+          <% else %>
 
-                          <%= link_to 'ORDER-DETAILS-VIEWS', orderdetails_path %>
-                        </div>
+              <li> <%= link_to 'Login', login_path %></li>
+
+          <% end %>
+
+        </ul>
+      </div>
+
+    </div>
+
+        <div style="float:right; margin: 17px 10px 0 0;">
+          <% if session[:usersession] %>
+          <font color="#008B8B">
+
+           <p> Welcome </font><font color="#EA7A1B"> <%= session[:name] %> </p>
+          </font>
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Logout', logout_path %></li>
+          </ul>
+              <% end %>
+        </div>
+
 
       </div>
-     </div>
-  </div>
-</b>
+
+
+    </div>
 
 <%= yield %>
+
+<div id="footer" style="background-color: #333333; width: 80%; height: 50px; margin: 5px 0 0 150px; border-radius: 10px; border: 3px solid #333333">
+
+  <p style="margin-left: 500px;"><font color="white">All rights reserved. Powered by NextBridge</font></p>
+
+</div>
 </body>
 </html>

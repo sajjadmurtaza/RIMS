@@ -1,0 +1,37 @@
+<div id="login">
+  <span style="margin: 30px 30px 0 0;" class="pull-right"><a href="#">New Registration</a></span>
+
+  <div style="margin: 100px 0 0 350px;">
+
+<%= @l %>
+    <h2><font color="red"><%= flash[:error] %></font></h2>
+    <h2>
+      <font color="#696969">
+        Login Please <br>
+      </font>
+    </h2>
+
+
+    <hr align="left" width="30%"><br>
+
+    <form action="login" data-toggle="validator" role="form">
+      <div class="form-group">
+         Enter the username:<br>
+            <input type="text" name="username" placeholder="Email" id="inputName" required><br>
+
+         Enter the password:<br>
+            <input type="password" name="pswd" placeholder="Password" id="inputName" required><br>
+<br>
+            <input type="submit" value="Login" class="btn-primary btn-sm">
+            <span><a href="#">Need help?</a></span>
+        <div class="help-block with-errors"></div>
+      </div>
+
+
+    </form>
+</div></div>
+
+<!--#################################################################-->
+
+
+

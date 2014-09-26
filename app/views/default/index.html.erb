@@ -1,0 +1,30 @@
+<div id="default">
+  <%= render 'slider' %>
+</div>
+
+
+
+<div id="all_cat">
+
+  <% @categories.each do |category| %>
+   <span class="category" style="float: left; margin: 20px; width:250px;  height: 300px; border: solid 1px #fff; border-radius: 25px; overflow: hidden">
+
+     <span class="product-image">
+       <%if category.products.last.avatar.url(:medium)!=nil?%>
+        <%= image_tag category.products.last.avatar.url(:medium) %>
+           <% else %>
+       <%= image_tag '1.jpg' %>
+       <% end %>
+      </span>
+     <p class="product-name">
+       <%= category.category_name %>
+     </p>
+      </span>
+  <% end %>
+
+</div>
+
+
+
+
+

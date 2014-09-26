@@ -1,9 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div id="show">
+  <div style="margin: 50px 0 0 350px;">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @order.customer_id %>
-</p>
+    <p>
+      <strong>Customer:</strong>
+      <%= @order.customer_id %>
+    </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+   <%= link_to 'Edit', edit_order_path(@order) %>|
+    <%= link_to 'Back', orders_path %>
+</div>
+    </div>

@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'checklogin/index'
+  get 'checklogin/index', to: 'checklogin#index', as: :checklogin
+
+  get 'logout/index'
+  get 'logout/index', to: 'logout#index', as: :logout
+
+  get 'default/index'
+  get 'default/login', to: 'default#login', as: :login
+  get 'rev/:id', to: 'posts#rev', as: :rev
+
   resources :customers
   resources :categories
   resources :products
