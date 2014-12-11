@@ -7,21 +7,21 @@
 <div id="all_cat">
 
   <% @categories.each do |category| %>
-   <span class="category" style="float: left; margin: 20px; width:250px;  height: 300px; border: solid 1px #fff; border-radius: 25px; overflow: hidden">
+   <span class="category" style=" box-shadow: 5px 5px 25px #666; float: left; margin: 20px; width:250px;  height: 350px; border: solid 1px #fff; border-radius: 25px; overflow: hidden">
 
      <span class="product-image">
-       <%if category.products.last.avatar.url(:medium)!=nil?%>
         <%= image_tag category.products.last.avatar.url(:medium) %>
-           <% else %>
-       <%= image_tag '1.jpg' %>
-       <% end %>
       </span>
-     <p class="product-name">
+     <p class="product-name" style="margin: 0 0 0 10px">
        <%= category.category_name %>
+     </p>
+     <p class="product-name" style="margin: 0 0 0 10px">
+         <%= link_to 'View All Products', category_path(category) %>
+     <%#= link_to 'View All Products', viewproduct_path(:catid => category) %>
      </p>
       </span>
   <% end %>
-
+  <div style="clear: both"></div>
 </div>
 
 

@@ -19,7 +19,7 @@
 <body style="background-color: #666666;">
 
 
-    <div id="container" style="background-color: #333333; width: 80%; height: 130px; margin: 5px 0 0 150px; border-radius: 10px; border: 3px solid #333333">
+    <div id="container" style="background-color: #333333; width: 80%; height: 130px; margin: 5px 0 0 150px; border-radius: 10px; border: 3px solid #a1a1a1;>
 
       <div style="width: 100%; height: 120px;">
 
@@ -30,7 +30,7 @@
 
 
     <!--SHOPPING TEXT AND NEVIGATION BAR-->
-    <div style=" height: 120;float:left">
+    <div style=" height: 120px ;float:left">
 
         <!-- SHOPPING CART TEXT-->
         <div style="float: left; height: 50px;">
@@ -43,15 +43,18 @@
       <div style="height: 50px;">
 
         <ul class="nav navbar-nav">
-          <% if session[:usersession] %>
+          <% if session[:usersession]==true %>
           <li><%= link_to 'Customers', customers_path %></li>
           <li><%= link_to 'Category', categories_path %></li>
-          <li><%= link_to 'Product', products_path %></li>
-          <li> <%= link_to 'Order', orders_path %></li>
-          <li><%= link_to 'Order-Detail', orderdetails_path %></li>
-          <% else %>
+          <li> <%#= link_to 'Order', orders_path %></li>
+          <li><%#= link_to 'Order-Detail', orderdetails_path %></li>
 
+          <% else %>
+              <% if session[:cussession]!=true %>
               <li> <%= link_to 'Login', login_path %></li>
+
+              <li><%= link_to 'Sign Up',new_path %></li>
+                  <% end %>
 
           <% end %>
 
@@ -61,7 +64,7 @@
     </div>
 
         <div style="float:right; margin: 17px 10px 0 0;">
-          <% if session[:usersession] %>
+          <% if session[:usersession]==true %>
           <font color="#008B8B">
 
            <p> Welcome </font><font color="#EA7A1B"> <%= session[:name] %> </p>
@@ -70,6 +73,16 @@
             <li><%= link_to 'Logout', logout_path %></li>
           </ul>
               <% end %>
+          <!--++++++++++++++++++++++++++++++++++++++++++++-->
+          <% if session[:cussession]==true %>
+              <font color="#008B8B">
+
+                <p> Welcome </font><font color="#EA7A1B"> <%= session[:cusname] %> </p>
+        </font>
+              <ul class="nav navbar-nav">
+                <li><%= link_to 'Logout', logout_path %></li>
+              </ul>
+          <% end %>
         </div>
 
 

@@ -1,12 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
-  # GET /products
-  # GET /products.json
-  def index
-    @products = Product.all
-  end
-
   # GET /products/1
   # GET /products/1.json
   def show
@@ -14,6 +8,7 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
+    @category = Category.find(params[:category_id])
     @product = Product.new
   end
 
@@ -29,7 +24,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to [@product.category, @product], notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -65,7 +60,7 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = Category.find(params[:category_id]).products.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -15,6 +15,10 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
+
+
+      #redirect_to default_index_path
+
   end
 
   # GET /customers/1/edit
@@ -28,6 +32,8 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
+        session[:cusname] = @customer.name
+        session[:cussession] = true
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else

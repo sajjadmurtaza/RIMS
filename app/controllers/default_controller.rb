@@ -1,9 +1,7 @@
 class DefaultController < ApplicationController
+
   def index
-
-    @products=Product.all
     @categories=Category.all
-
   end
 
   def login
@@ -12,10 +10,23 @@ class DefaultController < ApplicationController
       session[:name] = @user
       session[:usersession] = true
       redirect_to default_index_path
-    elsif
-      flash[:error] = 'Ivalid username or password..'
-      #redirect_to login_path
     end
+
+    if params[:username]!='sajjad.murtaza@nxb.com.pk'
+      Customer.all.each do |c|
+        if c.name == params[:username]
+          session[:cusname] = c.name
+          session[:cussession] = true
+          redirect_to default_index_path
+        end
+      end
+
+    end
+  end
+
+
+  def cuslogin
+
   end
 
 end

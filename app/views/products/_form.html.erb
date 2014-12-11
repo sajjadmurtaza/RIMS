@@ -1,17 +1,6 @@
 
     <div style="margin: 10px 0 0 350px;">
-    <%= form_for(@product) do |f| %>
-      <% if @product.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-          <ul>
-          <% @product.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <%= form_for [@category, @product] do |f| %>
 
       <div class="field">
         <%= f.label :product_name %><br>
@@ -34,9 +23,8 @@
         <%= f.text_field :desc %>
       </div>
       <div class="field">
-        <%= f.label :category_id %><br>
-        <%#= f.number_field :category_id %>
-        <%= f.select(:category_id, options_for_select(Category.all.collect {|c| [ c.category_name, c.id ]})) %>
+        <%= f.hidden_field :category_id, value: @category.id, as: :hidden %>
+        <%#= f.select(:category_id, options_for_select(Category.all.collect {|c| [ c.category_name, c.id ]})) %>
       </div>
         <div class="field">
           <%= f.label :avatar %>

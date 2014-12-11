@@ -3,23 +3,31 @@ Rails.application.routes.draw do
   get 'checklogin/index'
   get 'checklogin/index', to: 'checklogin#index', as: :checklogin
 
+
   get 'logout/index'
   get 'logout/index', to: 'logout#index', as: :logout
 
   get 'default/index'
   get 'default/login', to: 'default#login', as: :login
+  get 'default/cuslogin', to: 'default#cuslogin', as: :cuslogin
+
   get 'rev/:id', to: 'posts#rev', as: :rev
+  get 'customer/new', to: 'customers#new', as: :new
+
+  get 'product/addproduct', to: 'products#addproduct', as: :addproduct
+
+  resources :categories do
+    resources :products, except: [:index]
+  end
 
   resources :customers
-  resources :categories
-  resources :products
   resources :orders
   resources :orderdetails
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'default#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

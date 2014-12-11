@@ -1,13 +1,27 @@
-<div id="show">
-    <div style="margin: 10px 0 0 350px;">
-    <p id="notice"><%= notice %></p>
+<div id="all_products">
+  <%#= @products.inspect  %>
+  <%= link_to 'Add New Product', new_category_product_path(@category) %>
+  <br>
+  <% @category.products.each do |product| %>
 
-    <p>
-      <strong>Category name:</strong>
-      <%= @category.category_name %>
-    </p>
+    <span class="products" style=" box-shadow: 5px 5px 25px #666; float: left; margin: 20px; width:250px;  height: 370px; border: solid 1px #fff; border-radius: 25px; overflow: hidden">
 
-    <%= link_to 'Edit', edit_category_path(@category) %> |
-     <%= link_to 'Back', categories_path %>
-    </div>
+      <span class="product-image">
+        <%= image_tag product.avatar.url(:medium) %>
+      </span>
+      <p class="product-name" style="margin-left: 10px">
+        <%= product.product_name %>
+
+        <br>
+        Rs. <%= product.unit_price %><br>
+        <%= link_to 'View Full Detail of  Product', category_product_path(@category, product) %>
+        <%#= product.category.category_name %>
+        <%#= link_to 'view', product %>
+      </p>
+    </span>
+
+  <% end %>
+  <div style="clear: both"></div>
+
+
 </div>

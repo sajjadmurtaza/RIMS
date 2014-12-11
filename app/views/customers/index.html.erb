@@ -10,7 +10,10 @@
       <th>Email</th>
       <th>Phone</th>
       <th>Address</th>
+          <% if session[:usersession]==true %>
       <th colspan="3">Action</th>
+
+          <% end %>
     </tr>
   </thead>
 
@@ -23,9 +26,12 @@
         <td><%= customer.email %></td>
         <td><%= customer.phone %></td>
         <td><%= customer.address %></td>
+        <% if session[:usersession]==true %>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+            <% end %>
       </tr>
   <% i=i+1 %>
     <% end %>
@@ -33,7 +39,8 @@
 </table>
 
 <br>
-
+  <% if session[:usersession]==true %>
   <%= link_to 'New Customer', new_customer_path %>
+      <% end %>
 </div>
 </div>

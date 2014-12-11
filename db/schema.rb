@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925130213) do
+ActiveRecord::Schema.define(version: 20140926112210) do
 
   create_table "categories", force: true do |t|
     t.string   "category_name"
@@ -35,7 +35,11 @@ ActiveRecord::Schema.define(version: 20140925130213) do
     t.integer  "unit_price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "total"
+    t.integer  "customer_id"
   end
+
+  add_index "orderdetails", ["customer_id"], name: "index_orderdetails_on_customer_id"
 
   create_table "orders", force: true do |t|
     t.integer  "customer_id"

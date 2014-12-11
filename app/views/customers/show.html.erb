@@ -21,8 +21,9 @@
       <strong>Address:</strong>
       <%= @customer.address %>
     </p>
-
+  <% if session[:usersession] %>
    <%= link_to 'Edit', edit_customer_path(@customer) %> |
     <%= link_to 'Back', customers_path %>
+      <% end %>
 </div>
 </div>
