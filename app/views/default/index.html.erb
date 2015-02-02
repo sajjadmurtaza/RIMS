@@ -41,6 +41,7 @@
             <div id="myCarousel" class="myCarousel carousel slide">
               <div class="carousel-inner">
                 <% count = 1 %>
+                <% if Category.find_by(category_name: 'Woman').id.present? %>
                 <% Product.all.where(category_id: Category.find_by(category_name: 'Woman').id).each do |product| %>
                     <% if count <= 6 %>
                   <div class="active item">
@@ -63,6 +64,7 @@
                     </div>
                         <% end %>
                 <% end %>
+               <% end %>
                 </div>
 
               </div>
