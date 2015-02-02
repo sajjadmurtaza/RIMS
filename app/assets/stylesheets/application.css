@@ -11,8 +11,10 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
- *= require bootstrap.min
  *= require template
+ *= require bxslider
+ *= require_self
+
+
  */
 

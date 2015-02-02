@@ -12,8 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
-//= require bootstrap.min
+//= require bxslider
+//= require jquery_ujs
+//= require default
 
 
+
+
+$(document).ready(function() {
+    return $(".bxslider").bxSlider({
+        auto: true,
+        autoControls: true
+    });
+});
