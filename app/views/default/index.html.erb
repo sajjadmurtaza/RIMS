@@ -41,28 +41,7 @@
             <div id="myCarousel" class="myCarousel carousel slide">
               <div class="carousel-inner">
                 <% count = 1 %>
-                <% Product.all.where(category_id: Category.find_by(category_name: 'Woman').id).each do |product| %>
-                    <% if count <= 6 %>
-                  <div class="active item">
-                    <ul class="thumbnails">
-                      <li class="span3">
-                        <div class="product-box">
-                          <span class="sale_tag"></span>
-                          <p><%= image_tag product.avatar.url(:medium) %></p>
-                          <%= link_to product.product_name, '#', class: 'title'%><br>
-                          <%= link_to 'View Full Detail of  Product', category_product_path(product.category_id, product), class: 'category' %>
-                          <br>
 
-                          <p class="category"><%= link_to product.category.category_name, category_path(product.category_id) %></p>
-                          <p class="price">$<%= product.unit_price %></p>
-
-                        </div>
-                      </li>
-                    </ul>
-                    <% count = count + 1 %>
-                    </div>
-                        <% end %>
-                <% end %>
                 </div>
 
               </div>
@@ -86,18 +65,7 @@
               <div class="carousel-inner">
                 <div class="active item">
                   <ul class="thumbnails">
-                    <% count1 =  1 %>
-                    <% Product.all.order('created_at DESC').each do |product| %>
-                      <% if count1 <= 6%>
-                            <li class="span3">
-                                <div class="product-box">
-                                    <span class="sale_tag"></span>
-                                    <p><%= image_tag product.avatar.url(:medium) %></p>
-                                </div>
-                            </li>
-                            <% count1 = count1 + 1 %>
-                      <% end %>
-                    <% end %>
+                   
                   </ul>
                 </div>
 
