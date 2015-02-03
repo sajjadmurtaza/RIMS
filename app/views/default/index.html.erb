@@ -44,14 +44,13 @@
 
 
 
-
+                <% Product.all.each do |product| %>
+                    <% if count <= 6 %>
                   <div class="active item">
                     <ul class="thumbnails">
-                      <% Product.all.each do |product| %>
-                          <% if count <= 6 %>
                       <li class="span3">
                         <div class="product-box">
-
+                          <span class="sale_tag"></span>
                           <p><%= image_tag product.avatar.url(:medium) %></p>
                           <%= link_to product.product_name, '#', class: 'title'%><br>
                           <%= link_to 'View Full Detail of  Product', category_product_path(product.category_id, product), class: 'category' %>
@@ -62,13 +61,11 @@
 
                         </div>
                       </li>
-
+                    </ul>
                     <% count = count + 1 %>
-                          <% end %>
-                      <% end %>
-                              </ul>
                     </div>
-
+                        <% end %>
+                <% end %>
 
                 </div>
 
