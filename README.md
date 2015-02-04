@@ -14,4 +14,4 @@
 
 + Show Report of All products, like this
 
-![alt text](https://raw.githubusercontent.com/sajjadmurtaza49/sm-inventory/master/app/assets/images/4v.png "rails-inventory Screenshot")
+![alt text](https://raw.githubusercontent.com/sajjadmurtaza49/sm-inventory/master/app/assets/images/4v.jpg "rails-inventory Screenshot")
