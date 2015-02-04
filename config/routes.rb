@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :products, except: [:index]
   end
 
+  get :products, to: 'products#index'
   resources :customers
   resources :orders
   resources :orderdetails
