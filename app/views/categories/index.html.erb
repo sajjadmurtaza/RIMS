@@ -1,17 +1,27 @@
-<%= render 'default/slider' %>
+<div id="myCarousel-2" class="myCarousel carousel slide">
+  <div class="carousel-inner">
+    <div class="active item">
+      <ul class="thumbnails">
+        <% count =  1 %>
+        <% @categories.each do |category| %>
+                <li class="span3">
+                  <div class="product-box">
+                    <span class="sale_tag"><%= count %></span>
+                    <% if  category.products.last.present? %>
+                    <%= image_tag category.products.last.avatar.url(:medium)  %>
+                        <% else %>
+                            <%= image_tag 'ladies/001.jpg'%>
+                    <% end %>
+                    <p class="category"><%= category.category_name %></p>
+                   <%= link_to 'View All Products', category_path(category), class: 'category' %>
+                  </div>
+                </li>
+        <% count = count + 1 %>
+        <% end %>
+      </ul>
+    </div>
 
-<div id="all_cat">
-  <% @categories.each do |category| %>
-   <span class="category">
-     <span class="product-image">
-        <%= image_tag category.products.last.avatar.url(:medium) %>
-      </span>
-     <p class="product-name"><%= category.category_name %></p>
-     <p class="product-name"><%= link_to 'View All Products', category_path(category) %></p>
-
-    </span>
-  <% end %>
-  <div class="clearfix"></div>
+  </div>
 </div>
 
 

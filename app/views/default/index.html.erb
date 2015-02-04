@@ -18,8 +18,8 @@
 
       <div class="bxslider">
           <%= image_tag 'carousel/banner-1.jpg' %>
-          <%= image_tag 'carousel/banner-2.jpg' %>
-        <%= image_tag 'carousel/banner-3.jpg' %>
+          <%#= image_tag 'carousel/banner-2.jpg' %>
+        <%#= image_tag 'carousel/banner-3.jpg' %>
         <%= image_tag 'carousel/banner-4.jpg' %>
 
       </div>
@@ -56,7 +56,7 @@
                           <%= link_to 'View Full Detail of  Product', category_product_path(product.category_id, product), class: 'category' %>
                           <br>
 
-                          <p class="category"><%= link_to product.category.category_name, category_path(product.category_id) %></p>
+                          <p class="category"><%= link_to product.category.try(:category_name), category_path(product.category_id) %></p>
                           <p class="price">$<%= product.unit_price %></p>
 
                         </div>

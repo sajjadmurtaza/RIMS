@@ -1,6 +1,6 @@
 <div id="all_products">
   <%#= @products.inspect  %>
-  <%#= link_to 'Add New Product', new_category_product_path(@category) %>
+  <%= link_to 'Add New Product', new_category_product_path(@category) %>
   <br>
   <% @category.products.each do |product| %>
 

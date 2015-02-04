@@ -28,10 +28,8 @@
     <div class="span8">
       <div class="account pull-right">
         <ul class="user-menu">
-          <li><a href="#">My Account</a></li>
-          <li><a href="cart.html">Your Cart</a></li>
-          <li><a href="checkout.html">Checkout</a></li>
-          <li><a href="register.html">Login</a></li>
+          <li><%= link_to 'Add Category', new_category_path %></li>
+          <li><a href="#"></a></li>
         </ul>
       </div>
     </div>
@@ -40,27 +38,20 @@
 <div id="wrapper" class="container">
   <section class="navbar main-menu">
     <div class="navbar-inner main-menu">
-      <a href="index.html" class="logo pull-left">SM-Inventory</a>
+      <%= link_to 'SM-Inventory', default_index_path %>
       <nav id="menu" class="pull-right">
         <ul>
-          <li><a href="./products.html">Woman</a>
-            <ul>
-              <li><a href="./products.html">Lacinia nibh</a></li>
-              <li><a href="./products.html">Eget molestie</a></li>
-              <li><a href="./products.html">Varius purus</a></li>
-            </ul>
+          <li><%= link_to 'All Categories', categories_path %>
+
           </li>
-          <li><a href="./products.html">Man</a></li>
-          <li><a href="./products.html">Sport</a>
-            <ul>
-              <li><a href="./products.html">Gifts and Tech</a></li>
-              <li><a href="./products.html">Ties and Hats</a></li>
-              <li><a href="./products.html">Cold Weather</a></li>
-            </ul>
-          </li>
-          <li><a href="./products.html">Electronic</a></li>
-          <li><a href="./products.html">Best Seller</a></li>
-          <li><a href="./products.html">Top Seller</a></li>
+          <% count = 0 %>
+          <% Category.all.each do |category| %>
+            <% if count <= 7%>
+                <li><%= link_to category.category_name, category %></li>
+                <% count = count + 1 %>
+            <% end %>
+          <% end %>
+
         </ul>
       </nav>
     </div>

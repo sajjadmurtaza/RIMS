@@ -9,22 +9,22 @@
 
         if(quantity=="")
         {
-            alert("Please Enter the Quantity.")
+            alert("Please Enter the Quantity.");
             return false;
         }
 
 //        alert(avaible_quantity)
-        quantity=parseInt(quantity)
-        avaible_quantity=parseInt(avaible_quantity)
+        quantity=parseInt(quantity);
+        avaible_quantity=parseInt(avaible_quantity);
         if(quantity > avaible_quantity)
         {
 
-            alert("Enter between " + avaible_quantity)
+            alert("Enter between " + avaible_quantity);
             return false;
         }
         var total = price*quantity;
         document.getElementById('total').value = "Total : "+total;
-        alert("Total price of " + name + " " +total )
+        alert("Total price of " + name + " " +total );
 
     }
 
