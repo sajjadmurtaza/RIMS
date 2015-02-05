@@ -28,8 +28,15 @@
     <div class="span8">
       <div class="account pull-right">
         <ul class="user-menu">
+
           <li><%= link_to 'Add Category', new_category_path %></li>
           <li><%= link_to 'All Products Report', products_path %></a></li>
+          <% if user_signed_in? %>
+              <span style="font-weight: bold;"><%= link_to "Signed in as... #{current_user.email}" %></span>
+              <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
+              <% else %>
+                <li><%= link_to 'Login', new_user_session_path %></li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -42,7 +49,6 @@
       <nav id="menu" class="pull-right">
         <ul>
           <li><%= link_to 'All Categories', categories_path %>
-
           </li>
           <% count = 0 %>
           <% Category.all.each do |category| %>
@@ -51,7 +57,6 @@
                 <% count = count + 1 %>
             <% end %>
           <% end %>
-
         </ul>
       </nav>
     </div>
@@ -66,11 +71,11 @@
       <div class="span3">
         <h4>Navigation</h4>
         <ul class="nav">
-          <li><a href="./index.html">Homepage</a></li>
-          <li><a href="./about.html">About Us</a></li>
-          <li><a href="./contact.html">Contac Us</a></li>
-          <li><a href="./cart.html">Your Cart</a></li>
-          <li><a href="./register.html">Login</a></li>
+          <li><a href="#">Homepage</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contac Us</a></li>
+          <li><a href="#">Your Cart</a></li>
+          <li><a href="#">Login</a></li>
         </ul>
       </div>
       <div class="span4">
@@ -78,7 +83,6 @@
         <ul class="nav">
           <li><a href="#">My Account</a></li>
           <li><a href="#">Order History</a></li>
-          <li><a href="#">Wish List</a></li>
           <li><a href="#">Newsletter</a></li>
         </ul>
       </div>
