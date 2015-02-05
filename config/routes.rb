@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'sign_up_user_index', to: 'sign_up_users#index'
+
   devise_for :users
   get 'checklogin/index'
   get 'checklogin/index', to: 'checklogin#index', as: :checklogin

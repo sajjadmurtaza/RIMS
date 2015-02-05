@@ -1,0 +1,13 @@
+table.ui.striped.large.table
+  thead
+    tr
+      th Email
+      th IP
+      th Last SignIn Time
+      th SignIn Count
+  - @users.each do |user|
+    tr
+      td = user.email
+      td = link_to user.last_sign_in_ip , '#'
+      td = user.last_sign_in_at.strftime('%A %v %r') if user.last_sign_in_at
+      td = user.sign_in_count

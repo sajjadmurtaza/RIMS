@@ -15,3 +15,7 @@
 + Show Report of All products, like this
 
 ![alt text](https://raw.githubusercontent.com/sajjadmurtaza49/sm-inventory/master/app/assets/images/4v.jpg "rails-inventory Screenshot")
+
++ Show All Sign up Users.
+
+![alt text](https://raw.githubusercontent.com/sajjadmurtaza49/sm-inventory/master/app/assets/images/5v.png "rails-inventory Screenshot")
