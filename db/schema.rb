@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202122416) do
+ActiveRecord::Schema.define(version: 20150205111138) do
 
   create_table "categories", force: true do |t|
     t.string   "category_name"
@@ -20,13 +20,34 @@ ActiveRecord::Schema.define(version: 20150202122416) do
   end
 
   create_table "customers", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "phone"
-    t.string   "address"
+    t.string   "customer_name"
+    t.text     "address"
+    t.float    "purchased"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "rememberremember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "customers", ["confirmation_token"], name: "index_customers_on_confirmation_token", unique: true
+  add_index "customers", ["email"], name: "index_customers_on_email", unique: true
+  add_index "customers", ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  add_index "customers", ["unlock_token"], name: "index_customers_on_unlock_token", unique: true
 
   create_table "orderdetails", force: true do |t|
     t.integer  "order_id"
@@ -60,6 +81,7 @@ ActiveRecord::Schema.define(version: 20150202122416) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "status"
   end
 
   create_table "users", force: true do |t|

@@ -20,24 +20,34 @@
 
 <div id="top-bar" class="container">
   <div class="row">
-    <div class="span4">
-      <form method="POST" class="search_form">
-        <input type="text" class="input-block-level search-query" Placeholder="eg. Mobile">
-      </form>
+    <div class="span4" style="float: right;">
+      <span style="font-weight: bold;"><%= link_to "Signed in as... #{current_user.email}" if user_signed_in?%></span>
     </div>
     <div class="span8">
       <div class="account pull-right">
         <ul class="user-menu">
+          <br>
 
-          <li><%= link_to 'Add Category', new_category_path %></li>
-          <li><%= link_to 'All Products Report', products_path %></a></li>
           <% if user_signed_in? %>
+              <li><%= link_to 'Add Category', new_category_path %></li>
+              <li><%= link_to 'All Products Report', products_path %></a></li>
+              <li><%= link_to 'Customers', sign_up_user_customer_path %></li>
               <li><%= link_to 'Users', sign_up_user_index_path %></li>
-              <span style="font-weight: bold;"><%= link_to "Signed in as... #{current_user.email}" %></span>
+              <li><%= link_to 'Register New User', new_user_registration_path  %></li>
+
               <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
-              <% else %>
-                <li><%= link_to 'Login', new_user_session_path %></li>
           <% end %>
+
+              <% if customer_signed_in? %>
+                  <li><%= link_to 'Logout', destroy_customer_session_path, :method=>'delete' %></li>
+              <% else %>
+                    <% if user_signed_in? %>
+                    <% else %>
+                    <li><%= link_to 'Customer Login', new_customer_session_path %></li>
+                    <li><%= link_to 'Staff Login', new_user_session_path %></li>
+                    <% end %>
+              <% end %>
+
         </ul>
       </div>
     </div>

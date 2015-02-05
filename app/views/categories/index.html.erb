@@ -10,7 +10,7 @@
                     <% if  category.products.last.present? %>
                     <%= image_tag category.products.last.avatar.url(:medium)  %>
                         <% else %>
-                            <%= image_tag 'ladies/001.jpg'%>
+                            <%= image_tag 'no-image.png'%>
                     <% end %>
                     <p class="category"><%= category.category_name %></p>
                    <%= link_to 'View All Products', category_path(category), class: 'category' %>

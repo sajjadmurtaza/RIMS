@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'user_registrations/new'
+
+  get 'user_registrations/create'
+
+  devise_for :customers
   get 'sign_up_user_index', to: 'sign_up_users#index'
+  get 'sign_up_user_customer', to: 'sign_up_users#customer'
 
   devise_for :users
   get 'checklogin/index'
@@ -19,12 +25,12 @@ Rails.application.routes.draw do
 
   get 'product/addproduct', to: 'products#addproduct', as: :addproduct
 
+
   resources :categories do
     resources :products, except: [:index]
   end
 
   get :products, to: 'products#index'
-  resources :customers
   resources :orders
   resources :orderdetails
   # The priority is based upon order of creation: first created -> highest priority.

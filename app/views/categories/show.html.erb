@@ -1,7 +1,9 @@
 <div id="all_products">
   <%#= @products.inspect  %>
+  <% if user_signed_in? %>
   <%= link_to 'Add New Product', new_category_product_path(@category) %>
-  <br>
+  <% end %>
+      <br>
   <% @category.products.each do |product| %>
 
     <span class="products" style=" box-shadow: 5px 5px 25px #666; float: left; margin: 20px; width:250px;  height: 370px; border: solid 1px #fff; border-radius: 25px; overflow: hidden">
