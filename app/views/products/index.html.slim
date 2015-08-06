@@ -1,0 +1,50 @@
+#index
+  div style: "margin: 10px 0 0 250px;" 
+    = paginate @products
+    h3 Products In Inventory
+    table.table-bordered.table-condensed style: "box-shadow: 5px 5px 1px 1px #888888;" 
+      thead
+        tr bgcolor: "#191919", style: "height: 40px;" 
+          th style: "color: #ffffff;"  Serial #
+          th style: "color: #ffffff;"  Product name
+          th style: "color: #ffffff;"  Unit price
+          th style: "color: #ffffff;"  Quantity
+          th style: "color: #ffffff;"  Total Value
+          th style: "color: #ffffff;"  Isbn
+          th style: "color: #ffffff;"  Description
+          th style: "color: #ffffff;"  Category
+          th style: "color: #ffffff;"  Avatar
+          /! <th colspan="3">Action</th
+      tbody
+        - i=1
+        - total=0
+        - quantity=0
+        - @products.each do |product|
+          tr
+            td= i
+            td style: "color: deepskyblue;" = link_to product.product_name, category_product_path(product.category_id, product)
+            td= product.unit_price
+            td= product.quantity
+            td= product.quantity * product.unit_price
+            td= product.isbn
+            td= product.desc
+            td= product.category.category_name
+            td= image_tag product.avatar.url(:thumb)
+            /! <td><haml_silent></haml_silent></td
+            /! <td><haml_silent></haml_silent></td
+            /! <td><haml_silent></haml_silent></td
+          - i=i+1
+          - total=total + product.quantity * product.unit_price
+          - quantity = quantity + product.quantity
+      tfoot
+        tr style: "height: 60px; font-weight: bold;" 
+          td colspan: "5" 
+            = "Total price Show in This Page = #{number_to_currency total}"
+          td colspan: "4" 
+            = "Total Quantity in This Page = #{ quantity}"
+        tr style: "height: 60px; font-weight: bold;" 
+          td colspan: "5" 
+            = "Total Price Overall = #{number_to_currency Product.all.sum(:unit_price)}"
+          td colspan: "9" 
+            = "Total Quantity Overall = #{Product.all.sum(:quantity)}"
+    br/

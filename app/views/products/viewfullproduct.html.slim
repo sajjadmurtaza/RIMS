@@ -1,0 +1,74 @@
+javascript:
+  | function cal()
+      | {
+  
+          | var quantity = document.getElementById('quantity').value;
+          | var price = document.getElementById('price').value;
+          | var name = document.getElementById('name').value;
+          | var avaible_quantity = document.getElementById('avaible_quantity').value;
+  
+          | if(quantity=="")
+          | {
+              | alert("Please Enter the Quantity.")
+              | return false;
+          | }
+  
+  /!/        alert(avaible_quantity)
+          | quantity=parseInt(quantity)
+          | avaible_quantity=parseInt(avaible_quantity)
+          | if(quantity > avaible_quantity)
+          | {
+  
+              | alert("Enter between " + avaible_quantity)
+              | return false;
+          | }
+          | var total = price*quantity;
+          | document.getElementById('total').value = "Total : "+total;
+          | alert("Total price of " + name + " " +total )
+  
+      | }
+#all_products
+  div style: "margin: 10px 0 0 100px" 
+    span.products style: "  box-shadow: 5px 5px 25px #666; float: left; margin: 20px; width:250px;  height: 300px; border: solid 1px #fff; border-radius: 25px; overflow: hidden" 
+      span.product-image
+        = image_tag @product.avatar.url(:medium)
+    br/
+    br/
+    table.table-condensed border: "1", style: " width: 700px; margin-left: 10px; box-shadow: 5px 5px 1px #888888;" 
+      tr
+        td Product Name:
+        td= @product.product_name
+      tr
+        td Product ISBN:
+        td= @product.isbn
+      tr
+        td Product Category:
+        td= @product.category.category_name
+      tr
+        td Product Description:
+        td= @product.desc
+      tr
+        td Product Quantity:
+        td= @product.quantity
+      tr
+        td Product Unit Price:
+        td= @product.unit_price
+      - price = @product.unit_price
+      - name = @product.product_name
+      - cusname = session[:cusname]
+      - avaible_quantity = @product.quantity
+    div id: "", style: "clear: both" 
+    /! <button id="addorder" style="margin: 10px 0 0 300px" type="button" class="btn btn-default btn-default">Add in your order
+    /! </button
+    - if session[:cussession]
+      #showorder style: "margin: 10px 0 0 300px" 
+        /! <form action="addproduct" data-toggle="validator" role="form"
+        input#quantity name: "quantity", placeholder: "Enter ther quantity", type: "text" /
+        input#price hidden: "", type: "text", value: price /
+        input#name hidden: "", type: "text", value: name /
+        input#cusname hidden: "", type: "text", value: cusname /
+        input#avaible_quantity hidden: "", type: "text", value: avaible_quantity /
+        input onclick: "cal()", type: "submit", value: "Check your price" /
+        br/
+        input#total readonly: "readonly", type: "text" /
+        /! </form

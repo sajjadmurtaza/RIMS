@@ -1,0 +1,13 @@
+div class="container" style="margin: 10px 0 0 350px; min-height: 340px!important;"
+  = form_for @category, validate: true do |f|
+
+    div class="col-xs-4"
+      = f.label :category_name
+      = f.text_field :category_name,:placeholder => "Electronics" , class:"form-control"
+
+
+    br
+    div class="action" style="margin: 6px;"
+      button type="submit" class="btn btn-primary" Submit
+
+  = link_to 'Back', categories_path

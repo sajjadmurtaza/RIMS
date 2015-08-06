@@ -1,0 +1,8 @@
+#edit
+  div style: "margin: 10px 0 0 350px;" 
+    h1 Editing order
+  = render 'form'
+  div style: "margin: 10px 0 0 350px;" 
+    = link_to 'Show', @order
+    | \
+    | \#{link_to 'Back', orders_path}

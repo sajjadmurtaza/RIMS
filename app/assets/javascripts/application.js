@@ -15,6 +15,9 @@
 //= require bxslider
 //= require jquery_ujs
 //= require default
+//= require jquery.contextMenu
+//= require category
+//= require rails.validations
 
 
 

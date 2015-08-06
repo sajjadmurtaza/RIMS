@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    meta content: "text/html; charset=utf-8" http-equiv="Content-Type" /
+    title RailsCasts Weekly
+    css:
+      | body, td { color:#000000; font-size:14px; font-family:Verdana,Helvetica,Arial; }
+      .divider   background-color:#555555; height:2px;  
+      .episode h2   margin-top:0; margin-bottom:8px; font-size:18px;  
+      .episode p   margin:8px 0;  
+      .episode img   border:solid 1px #777777;  
+      .episode .duration   font-size:11px;color:#555555;  
+      #footer   font-size:11px; color:#555555;  
+      #footer a   color:#555555; 
+  body
+    table#background border: "0", cellpadding: "0", cellspacing: "0", width: "100%" 
+      tr
+        td align: "center", valign: "top" 
+          table#main border: "0", cellpadding: "0", cellspacing: "20", width: "650" 
+            tr
+              td#header colspan: "2" 
+                h1
+                  code Inventory Management System
+            tr
+              td.divider bgcolor: "#555555", colspan: "2", height: "2" 
+            tr.episode
+              td
+                a href: "#" = image_tag  'red-email-icon-png.png', width: "200", height:"125"
+              td valign: "top" 
+                h2
+                p
+                  code
+                    | Welcome #{@email}!
+                p
+                  code You can confirm your account email through the link below:
+                p
+                  code= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+            tr
+              td.divider bgcolor: "#555555", colspan: "2", height: "2" 
+            tr
+              td#footer align: "center", colspan: "2" 
+                p sajja.murtaza49@yahoo.com
+                p ©2015 Sajjad Murtaza

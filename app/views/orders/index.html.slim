@@ -1,0 +1,21 @@
+#index
+  div style: "margin: 10px 0 0 250px;" 
+    h1 Listing orders
+    table.table-bordered.table-condensed style: "box-shadow: 5px 5px 1px 1px #888888;" 
+      thead
+        tr bgcolor: "#191919" 
+          th S#
+          th Customer
+          th colspan: "3"  Action
+      tbody
+        - i=1
+        - @orders.each do |order|
+          tr
+            td bgcolor: "#191919" = i
+            td= order.customer.name
+            td= link_to 'Show', order
+            td= link_to 'Edit', edit_order_path(order)
+            td= link_to 'Destroy', order, method: :delete, data:   confirm: 'Are you sure?'  
+          - i=i+1
+    br/
+    = link_to 'New Order', new_order_path

@@ -1,0 +1,27 @@
+= form_for(@orderdetail) do |f|
+  - if @orderdetail.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@orderdetail.errors.count, "error")
+        | prohibited this orderdetail from being saved:
+      ul
+        - @orderdetail.errors.full_messages.each do |message|
+          li= message
+  .field
+    = f.label :order_id
+    br/
+    = f.number_field :order_id
+  .field
+    = f.label :product_id
+    br/
+    = f.number_field :product_id
+  .field
+    = f.label :quantity
+    br/
+    = f.number_field :quantity
+  .field
+    = f.label :unit_price
+    br/
+    = f.number_field :unit_price
+  .actions
+    = f.submit

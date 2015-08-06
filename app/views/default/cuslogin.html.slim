@@ -1,0 +1,28 @@
+#login
+  span.pull-right style: "margin: 30px 30px 0 0;" = link_to 'Sign Up',new_path
+  div style: "margin: 100px 0 0 350px;" 
+    = @l
+    h2
+      font color: "red" = flash[:error]
+    h2
+      font color: "#696969" 
+        | Customer Login Please
+        br/
+    hr align: "left", width: "30%" /
+    br/
+    form action: "cuslogin" data-toggle="validator", role: "form" 
+      .form-group
+        | Enter the name:
+        br/
+        input#inputName name: "username", placeholder: "Email", required: "", type: "text" /
+        br/
+        | Enter the password:
+        br/
+        input#inputName name: "pswd", placeholder: "Password", required: "", type: "password" /
+        br/
+        br/
+        input.btn-primary.btn-sm type: "submit", value: "Login" /
+        span
+          a href: "#"  Need help?
+        .help-block.with-errors
+/! #################################################################

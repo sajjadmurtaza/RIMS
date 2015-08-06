@@ -3,11 +3,9 @@
 <head>
   <style>
       body{
-
           margin: 0px;
           padding: 0px;
       }
-
   </style>
 
 
@@ -38,15 +36,15 @@
               <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
           <% end %>
 
-              <% if customer_signed_in? %>
-                  <li><%= link_to 'Logout', destroy_customer_session_path, :method=>'delete' %></li>
+          <% if customer_signed_in? %>
+              <li><%= link_to 'Logout', destroy_customer_session_path, :method=>'delete' %></li>
+          <% else %>
+              <% if user_signed_in? %>
               <% else %>
-                    <% if user_signed_in? %>
-                    <% else %>
-                    <li><%= link_to 'Customer Login', new_customer_session_path %></li>
-                    <li><%= link_to 'Staff Login', new_user_session_path %></li>
-                    <% end %>
+                  <li><%= link_to 'Customer Login', new_customer_session_path %></li>
+                  <li><%= link_to 'Staff Login', new_user_session_path %></li>
               <% end %>
+          <% end %>
 
         </ul>
       </div>
@@ -63,10 +61,10 @@
           </li>
           <% count = 0 %>
           <% Category.all.each do |category| %>
-            <% if count <= 7%>
-                <li><%= link_to category.category_name, category %></li>
-                <% count = count + 1 %>
-            <% end %>
+              <% if count <= 7%>
+                  <li class="context-menu-one box menu-1"><%= link_to category.category_name, category ,data: {url: edit_category_path(category), categoryname: category.category_name}%></li>
+                  <% count = count + 1 %>
+              <% end %>
           <% end %>
         </ul>
       </nav>
@@ -74,7 +72,7 @@
   </section>
 
 
-<%= yield %>
+  <%= yield %>
 
 
   <section id="footer-bar">

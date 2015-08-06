@@ -1,0 +1,12 @@
+#all_products
+  - @catid.each do |product|
+    span.products style: " box-shadow: 5px 5px 25px #666; float: left; margin: 20px; width:250px;  height: 370px; border: solid 1px #fff; border-radius: 25px; overflow: hidden" 
+      span.product-image
+        = image_tag product.avatar.url(:medium)
+      p.product-name style: "margin-left: 10px" 
+        = product.product_name
+        br/
+        | Rs. #{product.unit_price}
+        br/
+        = link_to 'View Full Detail of  Product', viewfullproduct_path(:product => product)
+  div style: "clear: both" 

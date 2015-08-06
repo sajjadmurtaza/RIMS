@@ -1,0 +1,9 @@
+#show
+  div style: "margin: 50px 0 0 350px;" 
+    p#notice= notice
+    p
+      strong Customer:
+      = @order.customer_id
+    = link_to 'Edit', edit_order_path(@order)
+    | \
+    | \#{link_to 'Back', orders_path}
