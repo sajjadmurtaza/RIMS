@@ -21,7 +21,7 @@ div style = "margin: 10px 0 0 350px;"
       br
       = f.text_field :desc , class:"form-control", placeholder:'Description'
     .row
-      = f.hidden_field :category_id, value: @category.id, as: :hidden
+      = f.hidden_field :category_id, value: @category.id, as: :hidden if  @product.new_record?
     .col-xs-8
       = f.label :avatar
       = f.file_field :avatar , class:"form-control"

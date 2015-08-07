@@ -62,7 +62,7 @@
           <% count = 0 %>
           <% Category.all.each do |category| %>
               <% if count <= 7%>
-                  <li class="context-menu-one box menu-1"><%= link_to category.category_name, category ,data: {url: edit_category_path(category), categoryname: category.category_name}%></li>
+                  <li class="context-menu-one box menu-1"><%= link_to category.category_name, category ,data: {url: edit_category_path(category), category_name: category.category_name}%></li>
                   <% count = count + 1 %>
               <% end %>
           <% end %>
