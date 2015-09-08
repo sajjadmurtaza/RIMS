@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :category
   has_many :orderdetails
+
   validates :product_name, :unit_price, :quantity, :desc, :category_id, presence: true
   validates :unit_price, :quantity, :category_id, numericality: { only_integer: true }
   validates_uniqueness_of :isbn

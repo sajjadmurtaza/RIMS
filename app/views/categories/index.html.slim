@@ -1,16 +1,14 @@
 #myCarousel-2.myCarousel.carousel.slide
   .carousel-inner
     .active.item
+      br
       ul.thumbnails
-        - count =  1
         - @categories.each do |category|
           li.span3
             .product-box.context-menu-one.box.menu-1
-              /span.sale_tag= count
               - if  category.products.last.present?
                 = image_tag category.products.last.avatar.url(:medium), 'data-url' => edit_category_path(category), 'data-category-name' => category.category_name
               - else
                 = image_tag 'no-image.png','data-url' => edit_category_path(category),'data-category-name' => category.category_name
               p.category= category.category_name
               = link_to 'View All Products', category_path(category), class: 'category'
-          - count = count + 1

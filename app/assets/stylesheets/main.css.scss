@@ -776,3 +776,31 @@ section.our_client .row{
 		border-bottom:1px solid #eee;
 	}
 }
+.product-box{
+    min-height: 270px;
+}
+
+
+#wrapper{
+  section{
+      nav{
+        ul li ul {
+          display: none; }
+
+        ul li ul a {
+          padding: 10px 0;
+        }
+        ul li:hover ul {
+          display: block;
+        }
+      }
+  }
+}
+
+.price {
+  color: #900000;
+  font-weight: bold;
+  font-size: 15px;
+  display: inline-block;
+}
+

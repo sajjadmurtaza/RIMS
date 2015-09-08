@@ -25,6 +25,8 @@ div style = "margin: 10px 0 0 350px;"
     .col-xs-8
       = f.label :avatar
       = f.file_field :avatar , class:"form-control"
+    .col-xs-8
+      = image_tag @product.avatar.url(:thumb)
     br
     .actions style = "margin: 6px;"
       button.btn.btn-primary type = "submit"  Submit

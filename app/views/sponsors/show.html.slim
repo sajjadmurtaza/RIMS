@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @sponsor.title
+p
+  strong Url:
+  = @sponsor.url
+p
+  strong Description:
+  = @sponsor.description
+p
+  strong Avatar:
+  = @sponsor.avatar
+
+= link_to 'Edit', edit_sponsor_path(@sponsor)
+'|
+= link_to 'Back', sponsors_path

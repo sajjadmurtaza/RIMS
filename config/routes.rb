@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :sponsors
+
   get 'user_registrations/new'
 
   get 'user_registrations/create'
