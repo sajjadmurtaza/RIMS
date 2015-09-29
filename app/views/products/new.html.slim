@@ -1,4 +1,4 @@
 #show
   div style = "margin: 10px 0 0 350px;"
-    h1 New product
+    h1 = "New product of <span class='new-pro'>#{@category.category_name}</span>".html_safe
   = render 'form'

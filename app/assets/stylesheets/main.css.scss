@@ -803,4 +803,45 @@ section.our_client .row{
   font-size: 15px;
   display: inline-block;
 }
+.other_category{
+  a{
+    padding: 7px 0 0 15px!important;
+    height: 27px;
+    font-weight: bold!important;
+  }
+}
+
+.main-con{
+
+  min-height: 500px!important;
+}
+
+h1{
+  font-size: 20px;
+  color: #eb4800!important;
+  font-family: 'quadrantaregular'
+}
+
+#all_products{
+  .link{
+    color: #000000;
+    font-size: 15px;
+    font-family: 'quadrantaregular'
+  }
+  .main-nav-black{
+    color: #eb4800;
+  }
+}
+.new-pro{
+  color: #000000;
+}
+.app-name{
+  font-size: 15px;
+  font-family: 'quadrantaregular'
+}
+.cat-name{
+  color: darkred;
+  font-size: 15px;
+  font-family: 'quadrantaregular'
+}
 

@@ -1,9 +1,9 @@
 #all_products
   - if user_signed_in?
-    = link_to 'Add New Product', new_category_product_path(@category)
+    = link_to "Add New Product of <span class='main-nav-black'>#{@category.category_name}</span>".html_safe, new_category_product_path(@category), class: 'link'
   br
   - @category.products.each do |product|
-    span.products style= " box-shadow: 5px 5px 25px #666; float: left; margin: 20px; width:250px;  height: 370px; border: solid 1px #fff; border-radius: 25px; overflow: hidden"
+    span.products style= " box-shadow: 5px 5px 25px #666; float: left; margin: 20px; width:220px;  height: 320px; border: solid 1px #fff; border-radius: 25px; overflow: hidden"
       span.product-image
         = image_tag product.avatar.url(:medium)
       p.product-name style= "margin-left: 10px"

@@ -55,7 +55,7 @@
 <div id="wrapper" class="container">
   <section class="navbar main-menu">
     <div class="navbar-inner main-menu">
-      <%= link_to 'SM-Inventory', default_index_path %>
+      <%= link_to 'RIMS', default_index_path, class:'app-name' %>
       <nav id="menu" class="pull-right">
         <ul>
           <li><%= link_to 'All Categories', categories_path %>
@@ -76,7 +76,7 @@
             <a href="#"> Other Categories &#9662;</a>
                <ul>
                   <% other_catagories.each do |category| %>
-                     <li class="context-menu-one box menu-1"><%= link_to category.category_name, category ,data: {url: edit_category_path(category), category_name: category.category_name}%></li>
+                     <li class="context-menu-one box menu-1 other_category"><%= link_to category.category_name, category ,data: {url: edit_category_path(category), category_name: category.category_name}%></li>
                   <% end %>
                </ul>
           </li>
@@ -86,49 +86,10 @@
     </div>
   </section>
 
+  <div class="main-con">
+    <%= yield %>
+  </div>
 
-  <%= yield %>
-
-
-  <section id="footer-bar">
-    <div class="row">
-      <div class="span3">
-        <h4>Navigation</h4>
-        <ul class="nav">
-          <li><a href="#">Homepage</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contac Us</a></li>
-          <li><a href="#">Your Cart</a></li>
-          <li><a href="#">Login</a></li>
-        </ul>
-      </div>
-      <div class="span4">
-        <h4>My Account</h4>
-        <ul class="nav">
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">Order History</a></li>
-          <li><a href="#">Newsletter</a></li>
-        </ul>
-      </div>
-      <div class="span5">
-        <p class="logo">SM-Inventory</p>
-        <p>SM-Inventory Is a Basic Sample Application in Ruby on Rails, Covered All Basics.
-          <br>
-          1- Login To The System & Change The Password.<br>
-          2- Add New Category. <br>
-          3- Add New Products. <br>
-          4- Edit, Delete & Show Functionality. <br>
-        </p>
-        <br/>
-						<span class="social_icon">
-							<a  href="#">Facebook</a>
-							<a style="margin-left: 10px"  href="#">Twitter</a>
-							<a style="margin-left: 10px"  href="#">Skype</a>
-							<a style="margin-left: 10px"  href="#">Vimeo</a>
-						</span>
-      </div>
-    </div>
-  </section>
   <section id="copyright">
     <span>© 2015 - All Rights Reserved - <%= mail_to "sajjad.murtaza49@yahoo.com", nil, :style => 'font-weight: bold' %></span>
   </section>

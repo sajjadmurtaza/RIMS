@@ -1,40 +1,17 @@
 .bxslider
-  - Sponsor.where("retired = ? and slider_sponsor = ? ", false, true ).each do |sponsor|
-    = link_to (image_tag sponsor.avatar.url(:xtralarge)), sponsor.url , target: '_blank'
+  - if Sponsor.where("retired = ? and slider_sponsor = ? ", false, true).any?
+    - Sponsor.where("retired = ? and slider_sponsor = ? ", false, true).each do |sponsor|
+      = link_to (image_tag sponsor.avatar.url(:xtralarge)), sponsor.url, target: '_blank'
+  - else
+    = image_tag 'no-sp.jpg'
+
+/900*230  --------------------------------Dimensions
+
+/220*220  --------------------------------Images
+
 section.main-content
   .row
     .span12
-      .row
-        .span12
-          h4.title
-            /! FEATURE PRODUCTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            span.pull-left
-              span.text
-                span.line
-                  | Feature
-                  strong Products
-          #myCarousel.myCarousel.carousel.slide
-            .carousel-inner
-              - count = 1
-              - Product.all.each do |product|
-                - if count <= 16
-                  .active.item
-                    ul.thumbnails
-                      li.span3
-                        .product-box
-                          span.sale_tag
-                          p= image_tag product.avatar.url(:medium)
-                          = link_to product.product_name, '#', class: 'title'
-                          br/
-                          = link_to 'View Full Detail of  Product', category_product_path(product.category_id, product), class: 'category'
-                          br/
-                          p.category= link_to product.category.try(:category_name), category_path(product.category_id)
-                          p.price
-                            | $#{product.unit_price}
-                    - count = count + 1
-    br/
-    .row
-      .span12
       h4.title
         span.pull-left
           span.text
@@ -51,7 +28,7 @@ section.main-content
                   li.span3
                     .product-box
                       span.sale_tag
-                      p= image_tag product.avatar.url(:medium)
+                      p = image_tag product.avatar.url(:medium)
                       .price
                         = number_to_currency(product.unit_price)
 
