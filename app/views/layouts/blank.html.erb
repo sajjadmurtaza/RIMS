@@ -31,7 +31,8 @@
               <li><%= link_to 'All Products Report', products_path %></a></li>
               <li><%= link_to 'Customers', sign_up_user_customer_path %></li>
               <li><%= link_to 'Users', sign_up_user_index_path %></li>
-              <li><%= link_to 'Register New User', new_user_registration_path  %></li>
+              <li><%= link_to 'New User', new_user_registration_path  %></li>
+              <li><%= link_to 'Sopnsors', sponsors_path  %></li>
 
               <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
           <% end %>
@@ -59,13 +60,27 @@
         <ul>
           <li><%= link_to 'All Categories', categories_path %>
           </li>
+
           <% count = 0 %>
+          <% other_catagories = []%>
           <% Category.all.each do |category| %>
-              <% if count <= 7%>
+              <% if count <= 6%>
                   <li class="context-menu-one box menu-1"><%= link_to category.category_name, category ,data: {url: edit_category_path(category), category_name: category.category_name}%></li>
-                  <% count = count + 1 %>
+              <% else %>
+                  <% other_catagories << category %>
               <% end %>
+              <% count = count + 1 %>
           <% end %>
+
+          <li>
+            <a href="#"> Other Categories &#9662;</a>
+               <ul>
+                  <% other_catagories.each do |category| %>
+                     <li class="context-menu-one box menu-1"><%= link_to category.category_name, category ,data: {url: edit_category_path(category), category_name: category.category_name}%></li>
+                  <% end %>
+               </ul>
+          </li>
+
         </ul>
       </nav>
     </div>

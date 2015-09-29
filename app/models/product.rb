@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
   validates_uniqueness_of :isbn
   validates_length_of :isbn, :minimum => 12
 
+  validates :product_name, exclusion: {in: %w(www http .com), message:  "These are reserved words"}
+
   scope :by_cat, lambda{ |cat| where(category_id:  cat) }
   scope :by_price, lambda{ |price| where('unit_price > ?',   price) }
   scope :by_week, lambda{ where('created_at > ?', Time.now-7.days)  }

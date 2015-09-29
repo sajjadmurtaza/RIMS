@@ -1,0 +1,27 @@
+= form_for @sponsor do |f|
+  - if @sponsor.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@sponsor.errors.count, "error")} prohibited this sponsor from being saved:"
+      ul
+        - @sponsor.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :retired
+    = f.check_box :retired
+  .field
+    = f.label :slider_sponsor
+    = f.check_box :slider_sponsor
+  .col-xs-8
+    = f.label :avatar
+    = f.file_field :avatar, class: "form-control"
+  .actions = f.submit 'Save'

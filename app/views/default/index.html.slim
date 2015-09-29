@@ -1,20 +1,6 @@
-/! /#default
-/! /  = render 'slider'
-/! /#all_cat
-/! /    - @categories.each do |category|
-/! /      span.category style=(" box-shadow: 5px 5px 25px #666; float: left; margin: 20px; width:250px;  height: 350px; border: solid 1px #fff; border-radius: 25px; overflow: hidden")
-/! /        span.product-image
-/! /          = image_tag category.products.last.avatar.url(:medium)
-/! /      p.product-name style=("margin: 0 0 0 10px")
-/! /        = category.category_name
-/! /      p.product-name style=("margin: 0 0 0 10px")
-/! /        = link_to 'View All Products', category_path(category)
-/! /        /= link_to 'View All Products', viewproduct_path(:catid => category)
-/! /
-/! /      div style=("clear: both")
 .bxslider
-  = image_tag 'carousel/banner-1.jpg'
-  = image_tag 'carousel/banner-4.jpg'
+  - Sponsor.where("retired = ? and slider_sponsor = ? ", false, true ).each do |sponsor|
+    = link_to (image_tag sponsor.avatar.url(:xtralarge)), sponsor.url , target: '_blank'
 section.main-content
   .row
     .span12
@@ -49,50 +35,46 @@ section.main-content
     br/
     .row
       .span12
-        h4.title
-          /! Latest PRODUCTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-          span.pull-left
-            span.text
-              span.line
-                | Latest
-                strong Products
-          span.pull-right
-            a.left.button data-slide="prev", href: "#myCarousel-2" 
-            a.right.button data-slide="next", href: "#myCarousel-2" 
-        #myCarousel-2.myCarousel.carousel.slide
-          .carousel-inner
-            .active.item
-              ul.thumbnails
-                - count1 =  1
-                - Product.all.order('created_at DESC').each do |product|
-                  - if count1 <= 6
-                    li.span3
-                      .product-box
-                        span.sale_tag
-                        p= image_tag product.avatar.url(:medium)
-                    - count1 = count1 + 1
-      .row.feature_box
+      h4.title
+        span.pull-left
+          span.text
+            span.line
+              | Latest
+              strong  Products
+      #myCarousel-2.myCarousel.carousel.slide
+        .carousel-inner
+          .active.item
+            ul.thumbnails
+              - count1 =  1
+              - Product.all.order('created_at DESC').each do |product|
+                - if count1 <= 20
+                  li.span3
+                    .product-box
+                      span.sale_tag
+                      p= image_tag product.avatar.url(:medium)
+                      .price
+                        = number_to_currency(product.unit_price)
+
+                      br
+                      = link_to 'View Full Detail of  Product', category_product_path(product.category, product), target: '_blank'
+                  - count1 = count1 + 1
+
+                section.main-content
+
+      h4.title
+        span.pull-left
+          span.text
+            span.line
+              | Our
+              strong  Sponsors
+    .row.feature_box
+      - Sponsor.where("retired = ? and slider_sponsor = ? ", false, false ).each do |sponsor|
+
         .span4
           .service
             .responsive
-              = image_tag "feature_img_2.png"
+              = link_to (image_tag sponsor.avatar.url(:thumb)), sponsor.url , target: '_blank'
               h4
-                | MODERN
-                strong DESIGN
-              /! <p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p
-        .span4
-          .service
-            .customize
-              = image_tag "feature_img_1.png"
-              h4
-                | FREE
-                strong SHIPPING
-              /! <p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p
-        .span4
-          .service
-            .support
-              = image_tag "feature_img_3.png"
-              h4
-                | 24/7 LIVE
-                strong SUPPORT
-              /! <p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p
+                strong = sponsor.title
+              p
+                = sponsor.description
