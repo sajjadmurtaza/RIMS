@@ -14,10 +14,14 @@
 //= require jquery_ujs
 //= require bxslider
 //= require jquery_ujs
+//= require raphael
+//= require morris
 //= require default
 //= require jquery.contextMenu
 //= require category
 //= require rails.validations
+//= require sponsors
+
 
 
 
@@ -26,5 +30,25 @@ $(document).ready(function() {
     return $(".bxslider").bxSlider({
         auto: true,
         autoControls: true
+    });
+});
+
+$(document).ready(function() {
+
+    Morris.Donut({
+        element: 'chart',
+        data: $("#chart").data('catagories')
+    });
+});
+
+$(document).ready(function() {
+    Morris.Bar({
+        element: 'bar',
+        data: $("#chart").data('catagories'),
+
+        xkey: 'label',
+        ykeys: ['value'],
+        labels: ['No. of Products: '],
+        xLabelAngle: 60
     });
 });

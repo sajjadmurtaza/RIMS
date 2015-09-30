@@ -42,7 +42,22 @@
             = "Total Quantity in This Page = #{ quantity}"
         tr style= "height: 60px; font-weight: bold;"
           td colspan= "5"
-            = "Total Price Overall = "
+            = "Total Price Overall = #{number_to_currency(Product.total)}"
           td colspan= "9"
             = "Total Quantity Overall = #{Product.all.sum(:quantity)}"
     br
+br
+div style="width:100%; min-height:320px;"
+  h1
+    | Category Products Detail
+  div style="width:40%; float:left;"
+    = content_tag :div, "", id: "chart", data:{catagories:Category.all}
+  div style="width:60%; float:right;"
+    = content_tag :div, "", id: "bar", data:{catagories:Category.all}
+
+br
+br
+br
+br
+br
+br

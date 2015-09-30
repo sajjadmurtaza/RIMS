@@ -9,4 +9,8 @@ class Category < ActiveRecord::Base
   #category=Category.all
   #category=category.where(id=1)
 
+  def as_json(options= {})
+    {label: self.category_name, value: self.products.count}
+  end
+
 end

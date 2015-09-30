@@ -1,27 +1,7 @@
-h1 Listing sponsors
+.container-list
+  = render @sponsors
 
-table border='1'
-  thead
-    tr
-      th Title
-      th Description
-      th Avatar
-      th Retired
-      th Slider Sponsor
-      th colspan='3' Action
-
-  tbody
-    - @sponsors.each do |sponsor|
-      tr
-        td = sponsor.title
-        td = sponsor.description
-        td = link_to (image_tag sponsor.avatar.url(:thumb)), sponsor.url
-        td = sponsor.retired
-        td = sponsor.slider_sponsor
-        td = link_to 'Show', sponsor
-        td = link_to 'Edit', edit_sponsor_path(sponsor)
-        td = link_to 'Destroy', sponsor, data: {:confirm => 'Are you sure?'}, :method => :delete
-
+.load-more-container
+  = image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif"
+  = link_to "Load More", sponsors_path, class: "load-more"
 br
-
-= link_to 'New Sponsor', new_sponsor_path

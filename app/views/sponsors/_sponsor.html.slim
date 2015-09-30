@@ -1,0 +1,22 @@
+.record data-id="#{sponsor.id}"
+
+  p
+    b
+      | Title:
+    = sponsor.title
+
+  p
+    b
+      | Description:
+    = sponsor.description
+
+  p
+    = link_to (image_tag sponsor.avatar.url(:thumb)), sponsor.url
+
+  p
+    b
+      = link_to 'Show', sponsor
+      | |
+      = link_to 'Edit', edit_sponsor_path(sponsor)
+      | |
+      = link_to 'Destroy', sponsor, data: {:confirm => 'Are you sure?'}, :method => :delete
