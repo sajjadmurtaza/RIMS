@@ -21,6 +21,7 @@
 //= require category
 //= require rails.validations
 //= require sponsors
+//= require products.js
 
 
 
@@ -30,25 +31,5 @@ $(document).ready(function() {
     return $(".bxslider").bxSlider({
         auto: true,
         autoControls: true
-    });
-});
-
-$(document).ready(function() {
-
-    Morris.Donut({
-        element: 'chart',
-        data: $("#chart").data('catagories')
-    });
-});
-
-$(document).ready(function() {
-    Morris.Bar({
-        element: 'bar',
-        data: $("#chart").data('catagories'),
-
-        xkey: 'label',
-        ykeys: ['value'],
-        labels: ['No. of Products: '],
-        xLabelAngle: 60
     });
 });

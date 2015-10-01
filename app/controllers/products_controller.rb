@@ -19,24 +19,19 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(product_params)
-    respond_to do |format|
       if @product.save
-        format.html { redirect_to [@product.category, @product], notice: 'Product was successfully created.' } #format.json { render :show, status: :created, location: @product }
+        redirect_to [@product.category, @product], notice: 'Product was successfully created.'
       else
-        format.html { render :new } # format.json { render json: @product.errors, status: :unprocessable_entity }
+         redirect_to new_category_product_path
       end
-    end
   end
 
   def update
-    respond_to do |format|
       if @product.update(product_params)
-        p @product
         format.html { redirect_to [@product.category, @product], notice: 'Product was successfully updated.' } #format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit } #format.json { render json: @product.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   def destroy

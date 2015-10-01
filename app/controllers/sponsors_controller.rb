@@ -5,9 +5,9 @@ class SponsorsController < ApplicationController
     if params[:id]
       # get all records with id less than 'our last id'
       # and limit the results to 5
-      @sponsors = Sponsor.where('id < ?', params[:id]).limit(5)
+      @sponsors = Sponsor.where('id < ?', params[:id]).limit(1)
     else
-      @sponsors = Sponsor.limit(5)
+      @sponsors = Sponsor.limit(1)
     end
     respond_to do |format|
       format.html
