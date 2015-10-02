@@ -23,6 +23,9 @@
 + Charts 
 ![alt text](https://raw.githubusercontent.com/sajjadmurtaza49/sm-inventory/master/app/assets/images/charts.png "rails-inventory Screenshot")
 
++ Authorization
+![alt text](https://raw.githubusercontent.com/sajjadmurtaza49/sm-inventory/master/app/assets/images/can_can.png "rails-inventory Screenshot")
+
 + Show All Sign up Users.
 ![alt text](https://raw.githubusercontent.com/sajjadmurtaza49/sm-inventory/master/app/assets/images/5v.png "rails-inventory Screenshot")
 
