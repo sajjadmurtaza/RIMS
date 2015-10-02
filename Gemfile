@@ -17,6 +17,7 @@ gem 'paperclip', '~> 4.2'                   #........................... Papercl
 gem 'roadie'  , '~> 2.4.3'                  #........................... Making HTML emails comfortable for the Rails rockstars
 # gem 'client_side_validations'               #...........................
 gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
+gem 'cancancan', '~> 1.10'                  # .......................... Continuation of CanCan, the authorization Gem for Ruby on Rails.
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

@@ -46,6 +46,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     bxslider-rails (4.2.5.1)
+    cancancan (1.10.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -197,6 +198,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bxslider-rails
+  cancancan (~> 1.10)
   client_side_validations!
   coffee-rails (~> 4.0.0)
   debugger
